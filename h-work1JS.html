@@ -30,27 +30,24 @@
 </head>
 <body>
    <div class="container">
-    <button class="button" onclick="prompt('Как тебя зовут?')">Click On Me</button>
+    <button class = "button" onClick="hello();">Click On Me</button>
+
    </div>
 </body>
 
 <script> 
 
 
-   function prompt(mesage, name)
+  function hello()
     {
         let name = prompt('Как тебя зовут?');
         alert(`Привет, ${name}!`)
     }
 
     
-    /*function showMessageForUser(name = 'Me', message = 'Hi!') 
-       {
-        return `${name}: ${message}`;
-       }
 
-let m = showMessageForUser();
-alert(m);*/
+    
+
 
 </script>
 
