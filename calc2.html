@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор 2</title>
+    <style>
+
+    .calculate {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(7, 107, 99);
+    background: rgb(181, 230, 232);
+    border-radius: 5px;
+    padding:10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1 rem;
+        }
+
+        .container {
+            text-align: start;
+        }
+
+        h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2 rem;
+        }
+
+    .button {
+    width: 90%;
+    height: 6vh;
+    color: rgb(25, 27, 26);
+    background: rgb(235, 176, 200);
+    font-size: 0.9em;
+    border-radius: 5px;
+    
+}
+
+input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.8 rem; 
+    color: black;
+    width: 83%;
+}
+
+.result {
+    padding-top: 20px;
+}
+
+.summa,
+.raznost,
+.ymnozhenie,
+.delenie {
+    border:rgb(25, 27, 26), solid, 2px;
+    background: rgb(114, 182, 185);
+    padding-left: 16px;
+    padding-bottom: 16px;
+}
+
+    </style>
+</head>
+<body>
+
+<div class = container>
+    <h1> Калькулятор</h1>
+</div>
+
+<div class = "calculate">
+
+
+<div class = "summa">
+   
+     <p> <input type = "text" name = "firstslag" id = "firstSlag" placeholder = "Cлагаемое 1"> </p>
+     <p> <input type = "text" name = "secondslag" id = "secondSlag" placeholder = "Cлагаемое 2"> </p>  
+     <p> <input type = "text" name = "thirdslag" id = "thirdSlag" placeholder = "Cлагаемое 3"> </p>  
+     <button class = "button" onClick="sum();" >Сложить ( + )</button>
+     <div class = result>
+     <a>Результат:</a>   
+     <a id = "resultSum"></a>
+     </div>
+</div>
+
+<div class = "raznost">
+   
+     <p> <input type = "text" name = "ymenshaemoe" id = "ymenShaemoe" placeholder = "Уменьшаемое"> </p>
+     <p> <input type = "text" name = "vichitaemoe1" id = "vichiTaemoe1" placeholder = "Вычитаемое 1"> </p> 
+     <p> <input type = "text" name = "vichitaemoe2" id = "vichiTaemoe2" placeholder = "Вычитаемое 2"> </p> 
+     <button class = "button" onClick="minus();">Вычесть ( - )</button>  
+     <div class = result></div>
+     <a>Результат:</a>   
+     <a id = "resultMinus"></a>
+</div>
+
+<div class = "ymnozhenie">
+  
+    <p> <input type = "text" name = "firstMnozh" id = "firstMnozh" placeholder = "Множитель 1"> </p>
+    <p> <input type = "text" name = "secondMnozh" id = "secondMnozh" placeholder = "Множитель 2"> </p>
+    <p> <input type = "text" name = "thirdMnozh" id = "thirdMnozh" placeholder = "Множитель 3"> </p>
+    <button class = "button" onClick="mnozh();">Умножить ( * )</button>   
+    <div class = result>
+    <a>Результат:</a>
+    <a id = "resultMnozh" ></a>
+</div>
+</div>
+
+<div class = "delenie">
+    
+    <p> <input type = "text" name = "delimoe" id = "delimoe" placeholder = "Делимое"> </p>
+    <p> <input type = "text" name = "firstdelitel" id = "firstdelitel" placeholder = "Делитель 1"> </p> 
+    <p> <input type = "text" name = "seconddelitel" id = "seconddelitel" placeholder = "Делитель 2"> </p> 
+    <button class = "button" onClick="delim();">Разделить ( / )</button>  
+    <div class = result>
+    <a>Результат:</a>
+    <a id = "resultDelim"></a>
+</div>
+</div>
+    
+    </div>
+<script>
+       
+        
+
+        function sum(){
+        let firstSlag = document.getElementById('firstSlag').value;
+        let secondSlag = document.getElementById('secondSlag').value;
+        let thirdSlag = document.getElementById('thirdSlag').value;
+        result = Number(firstSlag) + Number(secondSlag) + Number(thirdSlag);
+        document.getElementById('resultSum').innerHTML = result;
+        }
+
+        
+        function minus(){
+        let ymenShaemoe = document.getElementById('ymenShaemoe').value;
+        let vichiTaemoe1 = document.getElementById('vichiTaemoe1').value;
+        let vichiTaemoe2 = document.getElementById('vichiTaemoe2').value;
+        result = Number(ymenShaemoe) - Number(vichiTaemoe1) - Number(vichiTaemoe2);
+        document.getElementById('resultMinus').innerHTML = result;
+        }
+
+        function mnozh() {
+        let firstMnozh = document.getElementById('firstMnozh').value;
+        let secondMnozh = document.getElementById('secondMnozh').value;
+        let thirdMnozh = document.getElementById('thirdMnozh').value;
+        result = Number(firstMnozh) * Number(secondMnozh) * Number(thirdMnozh);
+        document.getElementById('resultMnozh').innerHTML = result;
+        }
+
+        function delim() {
+        let delimoe = document.getElementById('delimoe').value;
+        let firstdelitel = document.getElementById('firstdelitel').value;
+        let seconddelitel = document.getElementById('seconddelitel').value;
+        result = Number(delimoe) / Number(firstdelitel) / Number(seconddelitel);
+        document.getElementById('resultDelim').innerHTML = result;
+        }
+
+
+
+</script>
+
+
+    
+</body>
+</html>

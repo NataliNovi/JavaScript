@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./normalize.css">
+    <title>Calc</title>
+    <style>
+
+.title {
+    margin-left: 20px;
+    font-size: 1.4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.calculator {
+    width: 282px;
+    height: 360px;
+    background: rgb(136, 235, 202);
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 1px solid rgb(7, 51, 48);
+    border-radius: 8px;
+   padding: 20px;
+}
+
+
+.container {
+    width: 230px;
+    height: 226px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    background: rgb(136, 235, 202);
+    margin-left: 12px;
+
+}
+
+.buttons {
+    width: 70%;
+    height: 10%;
+    color: rgb(25, 27, 26);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+   margin-bottom: 4vh;
+    margin-left: 12px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(121, 170, 230);
+}
+
+.btn_result {
+    width: 70%;
+    height: 10%;
+    margin-bottom: 6vh;
+    margin-left: 12px;
+    background-color: rgb(121, 170, 230);
+}
+
+.num1 {
+    padding-top: 2vh;
+    margin-left: 12px;
+    
+}
+
+.num2 {
+    margin-top: 2vh;
+    margin-left: 12px;
+    
+}
+
+.finish {
+    margin-left: 10px;
+}
+
+.finish_calc {
+    margin-left: 10px;
+}
+        
+    </style>
+</head>
+<body>
+    <h1 class = title>Calculator</h1>
+
+<div class = "calculator">
+
+    <p class ="num1">Number 1:  <input type = "text" id = "n1"></p>
+       
+    
+    <div class = "buttons">
+    <button class="btn" id="plus" onclick="ev='+'">+</button>
+    <button class="btn" id="minus" onclick="ev='-'">-</button>
+    <button class="btn" id="multiply" onclick="ev='*'">*</button>
+    <button class="btn" id="division" onclick="ev='/'">/</button>
+    </div>
+
+    <p class="num2">Number 2: <input type = "text" id = "n2"></p>
+        
+
+    <button class="btn_result" onclick="getResult()">=</button>
+    <a class="finish">Result:</a>
+    <a class="finish_calc" id = "result"></a>
+
+</div>
+
+    <script>
+
+let ev;
+
+function getResult() {
+let result;
+let n1 = Number(document.getElementById("n1").value);
+let n2 = Number(document.getElementById("n2").value);
+
+switch (ev) {
+
+    case '+':
+        result = n1 + n2;
+        break;
+
+    case '-':
+        result = n1 - n2;
+        break;
+
+    case '*':
+        result = n1 * n2;
+        break;
+
+    case '/':
+        result = n1 / n2;
+        break;
+}
+document.getElementById("result").innerHTML = result;
+}
+        
+    </script>
+</body>
+</html>
