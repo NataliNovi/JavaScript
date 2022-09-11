@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change BG-color</title>
+    <style>
+   
+ 
+  
+    
+    .container {
+       display: flex;
+       
+    }
+
+    .card-body {
+        border: 1px solid black;
+        width: 30%;
+        height: 50vh;
+        margin: 20px;
+        border: 1px, solid, rgb(1, 16, 1);
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+
+    }
+
+    .selected {
+        background-color: rgb(198, 241, 220);
+       
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <!--<div class = "card my-card" onclick="select(this)">-->
+
+        <div class = "card-body" onclick="select(this)">
+            <h3 class="card-title">Change background-color</h3>
+            <h4 class="card-subtitle">Poem</h4>
+            <p class="card-text">
+                GGreen is grass,
+                String beans and peas.
+                Green are the branches,
+                On Christmas trees.</p>
+        </div>
+
+    
+    <!--<div class = "card my-card" onclick="select(this)">-->
+
+    <div class = "card-body" onclick="select(this)">
+        <h3 class="card-title">Change background-color</h3>
+        <h4 class="card-subtitle">Poem</h4>
+        <p class="card-text">Green are the branches,
+            Budding in the sun.
+            And green are many vegetables,
+            Can you tell us some?</p>
+    </div>
+
+  
+
+
+    <!--<div class = "card my-card" onclick="select(this)">-->
+
+        <div class = "card-body" onclick="select(this)">
+            <h3 class="card-title">Change background-color</h3>
+            <h4 class="card-subtitle">Poem</h4>
+            <p class="card-text">Green is the grass,
+                Under both my feet.
+                And green is the broccoli,
+                My mother makes me eat!</p>
+        </div>
+    </div>
+
+    
+   <script>
+    function select(sender) {
+sender.classList.add("selected");
+    }
+   </script>
+
+</body>
+</html>
