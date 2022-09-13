@@ -15,15 +15,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 1.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
         }
 
         .button {
-            width: 20vw;
-            height: 10vw;
+            width: 10vw;
+            height: 4vw;
             /*background-color: rgb(159, 201, 241);*/
             background: linear-gradient(130deg, rgba(24,18,116,1) 0%, rgba(115,115,204,1) 36%, rgba(134,134,224,1) 50%, rgba(115,115,204,1) 64%, rgba(24,18,116,1) 100%);
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 500;
            color: white;
            border-radius: 10px;
@@ -34,13 +36,20 @@
         cursor: pointer;
     }
 
-
+.enter {
+    width: 30vw;
+    height: 4vw;
+    margin: 1vw;
+    font-size: 1rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 20px;
+}
 </style>
 </head>
 <body>
    <div class="container">
     <p>What is your name?</p>
-<p> <input type = "text" name = "name" id = "yourName" placeholder = "your name"> </p>
+<p> <input class="enter" type = "text" name = "name" id = "yourName" placeholder = "Enter your name"> </p>
 
 <button class = "button" id="save" onclick="confirmName()">Save</button>
 
