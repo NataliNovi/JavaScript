@@ -75,6 +75,7 @@ button {
     <button onclick="plus()">+</button>
     <button onclick="minus()">-</button>
     <button onclick="multiply()">*</button>
+    <div id="errorMessage"></div>
     <button type="button" onclick="division(); check();">/</button>
     </div>
     <div id="errorMessage"></div>
@@ -134,11 +135,11 @@ button {
             document.getElementById('out').innerHTML = result;
         }
            
-            function check(){
+            function check() {
             let num2 = document.getElementById('n2').value;
-            if(num2 == 0) {
+            if(num2 == "0") {
             alert("На ноль делить нельзя"); }
-        }
+            }
            
 
        

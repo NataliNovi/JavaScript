@@ -98,13 +98,13 @@
     <button class="btn" id="plus" onclick="ev='+'">+</button>
     <button class="btn" id="minus" onclick="ev='-'">-</button>
     <button class="btn" id="multiply" onclick="ev='*'">*</button>
-    <button class="btn" id="division" onclick="ev='/'">/</button>
+    <button class="btn" id="division" onclick="check(); ev='/'">/</button>
     </div>
 
     <p class="num2">Number 2: <input type = "text" id = "n2"></p>
         
 
-    <button class="btn_result" onclick="getResult()">=</button>
+    <button class="btn_result" onclick="getResult()";>=</button>
     <a class="finish">Result:</a>
     <a class="finish_calc" id = "result"></a>
 
@@ -112,9 +112,10 @@
 
     <script>
 
-let ev;
 
+let ev;
 function getResult() {
+   
 let result;
 let n1 = Number(document.getElementById("n1").value);
 let n2 = Number(document.getElementById("n2").value);
@@ -139,7 +140,14 @@ switch (ev) {
 }
 document.getElementById("result").innerHTML = result;
 }
-        
+
+function check() {
+            let num2 = document.getElementById('n2').value;
+            if(num2 == "0") {
+            alert("На ноль делить нельзя"); }
+            }
+
+
     </script>
 </body>
 </html>
