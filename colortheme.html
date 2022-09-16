@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: start;
+        
+        
+    }
+.select {
+    width: 20vw;
+    height: 7vh;
+    align-content: center;
+    border: 1px solid rgb(7, 7, 7);
+    border-radius: 5px;
+    font-family: Pacifico;
+        font-size: 1.2rem;
+        cursor: pointer;
+}
+
+.chose {
+    margin-left: 8px;
+    font-family: Pacifico;
+        font-size: 1.6rem;
+        cursor: pointer;
+}
+
+.group {
+   margin-top: 2vh;
+   margin-left: 5vh;
+  
+}
+    
+    </style>
+   
+</head>
+<body>
+    <div class="container" id="container" style="background-color: rgb(178, 191, 222)">
+    <div class="group">
+        <p class = "chose">Выберите тему: </p>
+    <select class=select name="Theme color" id="color" onchange="show()">
+        <option disabled selected="selected">Варианты цветов</option>
+        <option value="pink">Розовый</option>
+        <option value="turquoise">Бирюзовый</option>
+        <option value="dodgerblue">Голубой</option>
+        <option value="violet">Лиловый</option>
+        <option value="beige">Бежевый</option>
+        <option value="khaki">Хаки</option>
+        <option value="orange">Оранжевый</option>
+        <option value="lightgrey">Светло-серый</option>
+        <option value="yellow">Желтый</option>
+    </select><br><br>
+</div>
+
+   
+    </div>
+<script>
+
+
+
+    function show()
+    {
+        switch (document.getElementById('color').value)
+        {
+            case "pink":
+                document.getElementById('container').style.backgroundColor='pink';
+                break;
+
+            case "turquoise":
+                document.getElementById('container').style.backgroundColor='turquoise';
+                break;
+
+                case "dodgerblue":
+                document.getElementById('container').style.backgroundColor='dodgerblue';
+                break;
+
+                case "violet":
+                document.getElementById('container').style.backgroundColor='rgb(212, 154, 246)';
+                break;
+
+                case "beige":
+                document.getElementById('container').style.backgroundColor='beige';
+                break;
+
+                case "khaki":
+                document.getElementById('container').style.backgroundColor='khaki';
+                break;
+
+                case "orange":
+                document.getElementById('container').style.backgroundColor='rgb(246, 212, 154)';
+                break;
+
+                case "lightgrey":
+                document.getElementById('container').style.backgroundColor='lightgrey';
+                break;
+
+                case "yellow":
+                document.getElementById('container').style.backgroundColor='rgb(235, 238, 158)';
+                break;
+
+
+        }
+
+
+    }
+</script>
+</body>
+</html>
