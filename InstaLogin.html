@@ -133,7 +133,7 @@
                         </div>
                         <div class="text-center">
                             <div id="errorMessage"></div>
-                            <button class="btn btn-block btn-login" type="button" onclick="check()">Регистрация</button>
+                            <button class="btn btn-block btn-login" type="button" onclick="check(), hello();">Регистрация</button>
                         </div>
                         <div class="modal-footer">
                             <div class="rules"><a>Регистрируясь, вы соглашаетесь с нашими <a class="conditions"
@@ -175,9 +175,11 @@
                     .innerHTML += "Ваш пароль too short<br>";
             }
             else {
-                alert('Поздравляем! Регистрация прошла успешно!');
-            };
+                let username = document.getElementById('exampleInputName').value;
+                alert(`Поздравляем, ${username}! Регистрация прошла успешно!`);
+            }
         }
+       
     </script>
     
 </body>
