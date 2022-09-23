@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <title>Document</title>
+    <style>
+        button {
+            width: 16.4rem;
+            height: 3rem;
+            background: rgb(227, 151, 176);
+            border-radius: 6px;
+            font-size: larger;
+            margin-top: 3vh;
+            margin-left: 20px;
+        }
+
+        input {
+            width: 16rem;
+            height: 3rem;
+           text-align: center;
+            border-radius: 6px;
+            font-size: larger;
+            margin-left: 20px;
+        }
+
+        .container {
+           display: flex;
+           justify-content: flex-start;
+           flex-direction: column;
+            background: rgb(172, 212, 236);
+            width: 100vw;
+            height: 100vh;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h4 {
+            margin-left: 20px;
+            width: 16rem;
+            height: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h4>Введите однозначные числа через запятую:</h4>
+    <input value="" type="text"/>
+    <button>Готово</button>
+
+    <h4>Числа по возрастанию:</h4>
+    <input class = "numbers"/>
+
+    <h4>Сумма введенных чисел:</h4>
+    <input class = "result"/>
+
+</div>
+
+    <script>
+
+
+
+        let inputVal, 
+        button = document.querySelector('button'),
+        arraySum = [];
+
+        button.addEventListener('click', function() {
+            inputVal = document.querySelector('input').value;
+            arraySum = inputVal.split(',');
+            arraySum.sort();
+
+            let increase = arraySum.sort();
+            //alert(increase);
+            
+            document.querySelector('.numbers').value = increase;
+        
+
+            const calculateSum = (inputValue) => {
+                let sum = 0;
+                for (let i=0; i<inputValue.length; i++) {
+                    sum += Number(inputValue[i]);
+                }
+                return sum;
+            }
+            
+            //alert('Сумма: ' +calculateSum(arraySum));
+            document.querySelector('.result').value = +calculateSum(arraySum);}
+            
+            );
+
+
+
+        /*let inputVal, 
+        button = document.querySelector('button'),
+        arraySum = [];
+
+        button.addEventListener('click', function() {
+            inputVal = document.querySelector('input').value;
+            arraySum = inputVal.split(',');
+            //let increase = arraySum.sort();
+            //alert(increase);
+            alert(arraySum.sort());
+            //document.querySelector('.numbers').value = increase;
+        
+
+            const calculateSum = (inputValue) => {
+                let sum = 0;
+                for (let i=0; i<inputValue.length; i++) {
+                    sum += Number(inputValue[i]);
+                }
+                return sum;
+            }
+            
+            //alert('Сумма: ' +calculateSum(arraySum));
+            document.querySelector('.result').value = +calculateSum(arraySum);}
+            
+            );*/
+        
+
+
+
+        
+
+            /*const arraySumOne=arraySum.sort();
+            const initialValue = 0;
+            const sumWithInitial = arraySumOne.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
+            alert(sumWithInitial);
+            console.log(sumWithInitial);*/
+
+
+          //выводит числаи наоборот
+           /*let reduceValue = arraySum.reduce(function(previousValue, item, index, array) {
+                return (item + previousValue);},0);
+                alert(reduceValue); */
+
+    </script>
+
+</body>
+</html>
+
