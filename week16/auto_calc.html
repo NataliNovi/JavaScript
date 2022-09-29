@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display:flex;
+            flex-direction: column;
+            padding-left: 30px;
+          padding-right: 30px;
+           width: 20vw;
+           height: auto;
+           background-color: rgb(163, 239, 239);
+           justify-content: space-around;
+           align-items:stretch;
+           border-radius: 6px;
+        }
+
+        .calculator {
+          
+            text-align: center;
+            
+        }
+
+        button {
+            width: 85%;
+            border-radius: 6px;
+            height: 2rem;
+        }
+
+        .transp_type {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+            
+        }
+        .buy_place {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+
+        }
+
+        .aukcion_name {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .state_auto {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .engine {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .electromobile {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .transmission {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .age_auto {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .price {
+            margin: 3px;
+            border: 1px solid black;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .total {
+            border: 1px solid black;
+            width: 80%;
+            height: 20%;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-radius: 6px;
+            background: white;
+            
+        }
+
+     
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+     <h3 class="calculator">Калькулятор стоимости автомобиля</h3>
+
+     
+     <div class = "transp_type">
+<h4>Выберите тип транспорта:</h4>
+<!--<label for="" class="title">Тип</label>-->
+<select class="transport_type" name="" id="transport_type" onchange="addType()">
+   <option value="choose" id="choiceType" selected>Тип транспорта</option>
+    <option value="300" id="car">Легковой автомобиль</option>
+    <option value="150" id="bike">Мотоцикл</option>
+    <option value="500" id="bus">Микроавтобус</option>
+    <option value="500" id="jeep">Джип</option>
+    <option value="150" id="quadro">Квадроцикл</option>
+</select>
+<div class="errors" id="errorType"></div>
+     </div>
+
+     <div class="buy_place">
+<h4>Место покупки:</h4>
+<select class="place" name="place" id="place" onchange="addPlace()">
+    <option value="choose" id="choicePlace" selected>Город</option>
+    <!--<option disabled selected="selected">Площадка</option>-->
+    <option value="300" id="atlanta">Атланта</option>
+    <option value="400" id="boston">Бостон</option>
+    <option value="400" id="chicago">Чикаго</option>
+    <option value="500" id="los_angeles">Лос Анжелес</option>
+    <option value="300" id="new_orlean">Новый Орлеан</option>
+    <option value="600" id="toronto">Торонто</option>
+    <option value="300" id="washington">Вашингтон</option>
+</select>
+<div class="errors" id="errorPlace"></div>
+</div>
+
+<div class="aukcion_name">
+<h4>Аукцион:</h4>
+<select class="aukcion" name="aukcion" id="aukcion" onchange="addAukcion()">
+    <option value="choose" id="choiceAukcion" selected>Площадка</option>
+   <!-- <option disabled selected="selected">Аукцион</option>-->
+    <option value="350" id="copart">Copart</option>
+    <option value="300" id="iaai">Iaai</option>
+    <option value="250" id="impact">Impact</option>
+</select>
+<div class="errors" id="errorAukcion"></div>
+</div>
+
+
+     <div class="state_auto">
+        <h4>Состояние автомобиля:</h4>
+        <select class="state" name="state" id="state" onchange="addState()">
+            <option value="choose" id="choiceState" selected>Состояние</option>
+            <!--<option disabled selected="selected">Возраст автомобиля</option>-->
+            <option value="600" id="perfect">Как новенький </option>
+            <option value="200" id="broken">Бит</option>
+            <option value="400" id="repairing">Крашен</option>
+            </select>
+            <div class="errors" id="errorState"></div>
+            </div>
+ 
+
+    <!--<div class="engine">
+        <h4>Объём двигателя (см куб):</h4>
+        <input type="text" id="engine_volume" onchange="addEngine()"/>
+    </div>-->
+
+    <div class="electromobile">
+        <h4>Электромобиль:</h4>
+
+        <div>
+            <label for="elecro1">Да</label>
+            <input type="radio" value="100" class="electro" id="electro1" name="electric" onclick="addElectro()"/>
+        </div>
+
+        <div>
+            <label for="elecro2">Нет</label>
+            <input type="radio" value="400" class="electro" id="electro2" name="electric" onclick="addElectro()"/>
+        </div>
+
+        <div class="errors" id="errorElectro"></div>
+    </div>
+
+<div class="transmission">
+    
+       <h4>Коробка передач</h4>
+      <!-- <label for="" class="title" id="transmissionType">Трансмиссия</label>-->
+    <div>
+        <label for="manual">Механика</label>
+        <input type="radio" value="100" id="manual" name="transmission" onclick="addTransmission()" />
+    </div>
+    <div>
+        <label for="auto">Автомат</label>
+        <input type="radio" value="300" id="auto" name="transmission" onclick="addTransmission()" />
+    </div>
+    <div>
+        <label for="robot">Робот</label>
+        <input type="radio" value="600"  id="robot" name="transmission" onclick="addTransmission()" />
+    </div>
+        <div class="errors" id="errorTransmission"></div>
+</div>
+
+
+    <div class="age_auto">
+        <h4>Возраст автомобиля:</h4>
+    <select class=select name="age" id="age" onchange="addAge()">
+    <option value="choose" id="choiceAge" selected>Возраст</option>
+    <!--<option disabled selected="selected">Возраст автомобиля</option>-->
+    <option value="400" id="young">3 года и меньше</option>
+    <option value="300" id="medium">3 - 5 лет</option>
+    <option value="100" id="old">более 5 лет</option>
+    </select>
+    <div class="errors" id="errorAge"></div>
+    </div>
+
+
+<div class="price">
+    <h4>Рассчётная стоимость автомобиля ($):</h4>
+    <button class="result" onclick="result()">Рассчитать стоимость</button>
+    <div class="total" id="total">Итого:</div>
+</div>
+
+</div>
+
+<script>
+    let total = document.getElementById('total');
+    let typeNumber = [];
+    let placeNumber = [];
+    let aukcionNumber = [];
+    let stateNumber = [];
+    //let engineNumber = [];
+    let electroNumber = [];
+    let transmissionNumber = [];
+    let ageNumber = [];
+    let arr = [typeNumber, placeNumber, aukcionNumber, stateNumber, electroNumber, transmissionNumber, ageNumber];
+    let type = document.getElementById('transport_type');
+    let place = document.getElementById('place');
+    let aukcion = document.getElementById('aukcion');
+    let state = document.getElementById('state');
+    //let engine = document.getElementsById('engine_volume');
+    let electros = document.getElementsByClassName('electro');
+    let transmissions = document.getElementsByName('transmission');
+    let age = document.getElementById('age');
+    let errorType = document.getElementById('errorType');
+    let errorPlace = document.getElementById('errorPlace');
+    let errorAukcion = document.getElementById('errorAukcion');
+    let errorState = document.getElementById('errorState');
+   // let errorEngine = document.getElementById('errorEngine');
+    let errorElectro = document.getElementById('errorElectro');
+    let errorTransmission = document.getElementById('errorTransmission');
+    let errorAge = document.getElementById('errorAge');
+    let errors = document.getElementsByClassName('errors');
+    //let errorMessage = document.getElementById('errorMessage');
+
+
+    function addType() {
+        if (type.value !== document.getElementById('choiceType').value) {
+            console.log(typeNumber);
+            typeNumber.push(type.value);
+            console.log(typeNumber);
+            errorType.innerHTML = "";
+            
+        }
+    }
+
+    function addPlace() {
+        if (place.value !== document.getElementById('choicePlace').value) {
+            console.log(placeNumber);
+            placeNumber.push(place.value);
+            console.log(placeNumber);
+            errorPlace.innerHTML = "";
+        }
+    }
+
+    function addAukcion() {
+        if (aukcion.value !== document.getElementById('choiceAukcion').value) {
+            console.log(aukcionNumber);
+            aukcionNumber.push(aukcion.value);
+            console.log(aukcionNumber);
+            errorAukcion.innerHTML = "";
+        }
+    }
+
+    function addState() {
+        if (state.value !== document.getElementById('choiceState').value) {
+            console.log(stateNumber);
+            stateNumber.push(state.value);
+            console.log(stateNumber);
+            errorState.innerHTML = "";
+        }
+    }
+
+    function addElectro() {
+        for (var i=0; i<electros.length; i++) {
+            if (electros[i].checked) {
+                electroNumber.push(electros[i].value);
+                console.log(electroNumber);
+            }
+            errorElectro.innerHTML = "";
+        }
+    }
+
+    function addTransmission() {
+        for (var i=0; i<transmissions.length; i++) {
+            if (transmissions[i].checked) {
+                transmissionNumber.push(transmissions[i].value);
+                console.log(transmissionNumber);
+            }
+            errorTransmission.innerHTML = "";
+        }
+    }
+
+    function addAge() {
+        if (age.value !== document.getElementById('choiceAge').value) {
+            console.log(ageNumber);
+            ageNumber.push(age.value);
+            console.log(ageNumber);
+            errorAge.innerHTML = "";
+        }
+    }
+
+   function result() {
+   
+        if (type.value == document.getElementById('choiceType').value) {
+            errorType.innerHTML = "";
+            errorType.innerHTML += "Выберите вариант из списка <br>";
+            errorType.style.color='red';
+
+        }
+
+        else if (place.value == document.getElementById('choicePlace').value) {
+            errorPlace.innerHTML = "";
+            errorPlace.innerHTML += "Выберите вариант из списка <br>";
+            errorPlace.style.color='red';
+
+        }
+
+        else if (aukcion.value == document.getElementById('choiceAukcion').value) {
+            errorAukcion.innerHTML = "";
+            errorAukcion.innerHTML += "Выберите вариант из списка <br>";
+            errorAukcion.style.color='red';
+
+        }
+
+       else if (state.value == document.getElementById('choiceState').value) {
+            errorState.innerHTML = "";
+            errorState.innerHTML += "Выберите вариант из списка <br>";
+            errorState.style.color='red';
+        }
+
+        else if (electroNumber.length==0) {
+            errorElectro.innerHTML = "";
+            errorElectro.innerHTML += "Выберите вариант из списка <br>";
+            errorElectro.style.color='red';
+        }
+
+       else if (transmissionNumber.length==0) {
+            errorTransmission.innerHTML = "";
+            errorTransmission.innerHTML += "Выберите вариант из списка <br>";
+            errorTransmission.style.color='red';
+        }
+
+        else if (age.value == document.getElementById('choiceAge').value) {
+            errorAge.innerHTML = "";
+            errorAge.innerHTML += "Выберите вариант из списка <br>";
+            errorAge.style.color='red';
+        }
+
+        else {
+        total.innerHTML = "";
+
+            let result = arr.reduce(function(sum, current) {
+                return(+sum) + (+current);
+            }, 0);
+                console.log(result);
+                total.innerHTML += "Итого: " + result + " евро";
+                result = 0;
+        }
+    }
+
+
+        //document.querySelector('.total').value = +result();
+    
+
+
+</script>
+  
+</body>
+</html>
