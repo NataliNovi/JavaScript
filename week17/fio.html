@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 40%;
+            background: rgb(144, 227, 246);
+            justify-content: center;
+            align-content: center;
+           
+            border-radius: 5px;
+        }
+
+        .separate {
+            display: flex;
+            flex-direction: column;
+            width: 96%;
+            margin-top: 2rem;
+            justify-content: center;
+            margin-left: 8px;
+        }
+
+        .part {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            height: 1rem;
+            width: 95%;
+           
+        }
+
+        .part:last-child {
+            margin-bottom: 1rem;
+        }
+
+        #fio {
+            
+            height: 2rem;
+            margin-top: 2rem;
+            width: 91%;
+            margin-left: 8px;
+        }
+
+        button {
+            width: 60%;
+            margin-top: 1.2rem;
+            height: 2rem;
+            border-radius: 5px;
+            font-size: 0.7em;
+            margin-left: 8px;
+            background: rgb(24, 135, 160);
+            color: white;
+           
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class = container>
+    <input type="text" id="fio" placeholder="Ваши ФИО"/>
+    <button>Преобразовать</button>
+
+    <div class="separate">
+    <input class = part type="text" id="familia" placeholder="Фамилия"/>
+    <input class = part type="text" id="name" placeholder="Имя"/>
+    <input class = part type="text" id="otchestvo" placeholder="Отчество"/>
+    </div>
+    </div>
+
+    <script>
+
+let fio,
+button = document.querySelector('button'),
+arrayFio = [];
+
+
+button.addEventListener('click', function()
+{
+    fio = document.getElementById('fio').value;
+    arrayFio = fio.split(' ');
+    console.log(arrayFio);
+
+    //console.log(arrayFio[0]);
+    //console.log(arrayFio[1]);
+    //console.log(arrayFio[2]);
+
+
+    let familia = document.getElementById('familia');
+    familia = arrayFio[0];
+   // console.log(familia);
+    let cleanFamilia = familia.trim(familia);
+    console.log(cleanFamilia);
+   
+    console.log(familia[0]);
+
+    let familiaCut = cleanFamilia.slice(1);
+    console.log(familiaCut);
+
+    let familiaSmall = familiaCut.toLowerCase();
+    console.log(familiaSmall);
+    let familiaBig = cleanFamilia[0].toUpperCase();
+    console.log(familiaBig);
+
+    document.getElementById('familia').value = familiaBig + familiaSmall;
+
+
+   
+
+   let name = document.getElementById('name');
+    name = arrayFio[1];
+   // console.log(name);
+    let cleanName = name.trim(name);
+    console.log(cleanName);
+
+    console.log(name[0]);
+
+    let nameCut = cleanName.slice(1);
+    console.log(nameCut);
+
+    let nameSmall = nameCut.toLowerCase();
+    console.log(nameSmall);
+
+    let nameBig = cleanName[0].toUpperCase();
+    console.log(nameBig);
+
+    document.getElementById('name').value = nameBig + nameSmall;
+
+
+
+
+    let otchestvo = document.getElementById('otchestvo');
+    otchestvo = arrayFio[2];
+   // console.log(otchestvo);
+    let cleanOtchestvo = otchestvo.trim(otchestvo);
+    console.log(cleanOtchestvo);
+
+    console.log(otchestvo[0]);
+
+    let otchestvoCut = cleanOtchestvo.slice(1);
+    console.log(otchestvoCut);
+
+    let otchestvoSmall = otchestvoCut.toLowerCase();
+    console.log(otchestvoSmall);
+
+    let otchestvoBig = cleanOtchestvo[0].toUpperCase();
+    console.log(otchestvoBig);
+ 
+    document.getElementById('otchestvo').value = otchestvoBig + otchestvoSmall;
+
+});
+
+    
+  
+
+
+
+      
+
+    </script>
+</body>
+
+
+
+
+</html>
