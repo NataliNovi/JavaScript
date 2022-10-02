@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    .container {
+       
+        display: flex;
+       width: 100vw;
+       height: 100vh;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+    
+    }
+
+
+      button
+      {
+        width: 20vw;
+        height: 14vh;
+        background: rgb(49, 19, 101);
+        color: rgb(238, 233, 214);
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 10px;
+        font-style: italic;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        border: 5px solid rgb(238, 233, 214);
+        
+      
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+<button>Генератор случайных чисел</button>
+</div>
+
+    <script>
+       document.querySelector('button').onclick = function() {
+        
+        let min=-10;
+        let max=10;
+        let l=10;
+        let result=[];
+
+        for (i=0; i<l; i++) {
+            result.push(getRandom(min,max));
+        }
+
+        function getRandom (min,max) {
+          
+          let rand = min - 0.5 + Math.random() * (max - min + 1)
+          rand = Math.round(rand);
+          return rand;}
+
+        alert("Случайные числа: " +result);
+       
+       //console.log(result.length);
+
+       //result.forEach(function(item,index,array){
+        //console.log(item, index);});
+
+
+       let minValue = Math.min(...result);
+        alert("Минимальное значение: " + +minValue);
+
+        let maxValue = Math.max(...result);
+        alert("Максимальное значение: " + +maxValue);
+
+        let averageValue = result.reduce((a,b)=>a+b,0)/result.length;
+        alert("Среднее арифметическое: " + averageValue);
+
+        let summa = result.reduce((a,b)=>a+b,0);
+        alert("Сумма чисел: " + +summa);
+
+        let multiply = result.reduce((a,b)=>a*b);
+        alert("Произведение чисел: " + +multiply);
+
+       };
+
+        
+
+    </script>
+</body>
+</html>
