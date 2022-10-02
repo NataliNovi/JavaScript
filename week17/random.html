@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            background: rgb(150, 229, 243);
+            width: 40%;
+            padding: 5%;
+            border-radius: 5px;
+           font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+           
+        }
+
+        button {
+            height: 6vh;
+            margin-top: 4vh;
+            margin-bottom: 2vh;
+            font-size: 1em;
+            color: white;
+            border-radius: 5px;
+            background: rgb(55, 144, 160);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        input {
+            height: 3vh;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h2>Генератор случайных чисел</h2>
+
+<h4>Количество чисел</h4>
+<input type="text" id="lenght" value=""/>
+
+<h4>Минимальное число:</h4>
+<input type="text" id="min"/>
+
+<h4>Максимальное число:</h4>
+<input type="text" id="max"/>
+
+<button>Сгенерировать</button>
+
+<h4>Случайные числа:</h4>
+<input type="text" id="random"/>
+<!--<input id = "random-input"/>-->
+
+<h4>Наибольшее:</h4>
+<input type="text" id="maxNumber"/>
+
+<h4>Наименьшее:</h4>
+<input type="text" id="minNumber"/>
+
+<h4>Среднее арифметическое:</h4>
+<input type="text" id="medium"/>
+
+<h4>Сумма чисел:</h4>
+<input type="text" id="summ"/>
+
+<h4>Произведение чисел:</h4>
+<input type="text" id="multiply"/>
+
+</div>
+
+    <script>
+
+document.querySelector('button').onclick = function() {
+
+            function randomInteger(min,max) {
+            let rand = min - 0.5 + Math.random() * (max - min + 1)
+            rand = Math.round(rand);
+            return rand;
+        }
+
+            let l = document.querySelector('#lenght').value;
+            let min = document.querySelector('#min').value;
+            let max = document.querySelector('#max').value;
+            let result = [];
+
+
+            //без цикла пуш происходит только один раз
+            for (i=0; i<l; i++) {
+            result.push(randomInteger(min,max));
+        }
+            console.log(result);
+            document.querySelector('#random').value = result;
+            //document.querySelector('#random-input').value = result;
+
+            //return result;
+        
+//взяли готовый код и затем вписали эту функцию в цикл => мы получили массив случайных чисел
+     
+        //let result =  document.querySelector('#random').value;
+        //result=[];
+
+        let maxValue = Math.max(...result);
+        document.querySelector('#maxNumber').value = maxValue;
+        console.log("Максимальное значение: " + +maxValue);
+
+        let minValue = Math.min(...result);
+        document.querySelector('#minNumber').value = minValue;
+        console.log("Минимальное значение: " + +minValue);
+
+        let averageValue = result.reduce((a,b)=>a+b,0)/result.length;
+        document.querySelector('#medium').value = averageValue;
+        console.log("Среднее арифметическое: " + averageValue);
+
+        let summa = result.reduce((a,b)=>a+b,0);
+        document.querySelector('#summ').value = summa;
+        console.log("Сумма чисел: " + +summa);
+
+        let multiply = result.reduce((a,b)=>a*b);
+        document.querySelector('#multiply').value = multiply;
+        console.log("Произведение чисел: " + +multiply);
+    };
+
+       
+
+
+
+
+
+        /*let maxNumber = Math.max(2,4,5,6,7,2,0);
+       console.log(maxNumber);
+
+
+
+/*button = document.querySelector('button'),
+button.addEventListener('click', function() {
+//inputVal = document.querySelector('input').value;
+let min = Number(-10);
+let max = Number(10);
+
+alert (Math.round(Math.random(min,max)*(max-min)+min));
+});*/
+
+
+   
+/*function generate(min, max) {
+return Math.random(min, max) * (max-min) + min; 
+
+alert(Math.random(-10, 10));
+    }*/
+
+    </script>
+</body>
+</html>
