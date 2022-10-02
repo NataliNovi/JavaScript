@@ -17,31 +17,57 @@
     - В противном случае, полная дата в формате `"DD.MM.YY HH:mm"`. А именно: `"день.месяц.год 
     часы:минуты"`, всё в виде двух цифр, т.е. `31.12.16 10:00`.*/
 
- 
+ //убедимся, что функция работает:
+
+ function convertDate(date) {
+
+let DD = date.getDate();
+if (DD < 10) DD = '0' + DD;
+
+let MM = date.getMonth() + 1;
+if (MM < 10) MM = '0' + MM;
+
+let YY = date.getFullYear() % 100;
+if (YY < 10) YY = '0' + YY;
+
+let hh = date.getHours();
+if(hh<10) hh = '0' + hh;
+
+let mm = date.getMinutes();
+if(mm<10) mm = '0' + mm;
+
+return DD + '.' + MM + '.' + YY + '.' + hh + '.' + mm;
+
+}
+
+let date = new Date();
+console.log(convertDate(date)); 
+
+    
 
 
     let numm = +new Date();
     console.log(numm);
     
     let oneDate = +new Date() + 999;
-    console.log(oneDate);
+    //console.log(oneDate);
 
     let secondDate = +new Date() +1000*59+999;
-    console.log(secondDate);
+   //console.log(secondDate);
 
     let thirdDate = +new Date() + 1000*60*59 + 59;
-    console.log(thirdDate);
+    //console.log(thirdDate);
 
 
     function formatDate(numm) {
         let one = Number(oneDate)-Number(numm);
-        console.log(one);
+        //console.log(one);
 
         let two = Number(secondDate)-Number(numm);
-        console.log(two);
+        //console.log(two);
 
         let three = Number(thirdDate)-Number(numm);
-        console.log(three);
+        //console.log(three);
 
 
         if  (one < 1000 ) {
