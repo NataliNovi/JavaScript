@@ -84,7 +84,9 @@ arrayFio = [];
 button.addEventListener('click', function()
 {
     fio = document.getElementById('fio').value;
-    arrayFio = fio.split(' ');
+    stringFio = fio.replace(/^ +| +$|( ) +/g,"$1");
+    console.log(stringFio);
+    arrayFio = stringFio.split(' ');
     console.log(arrayFio);
 
     //console.log(arrayFio[0]);
