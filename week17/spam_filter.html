@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+
+        
+        .container {
+            width: 70vw;
+            display: flex;
+            flex-direction: column;
+            background: rgb(195, 195, 239);
+            align-items: center;
+           
+            border-color: rgb(106, 106, 235);;
+          
+        }
+
+.text_top {
+    width: 95%;
+    height: 30vh;
+    border-radius: 10px;
+    text-align:start;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    margin-top: 6vh;
+    margin-bottom: 10vh;
+    height: 5vh;
+    background: white;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#input_bottom {
+    width: 95%;
+    height: 30vh;
+    border-radius: 10px;
+    text-align:start;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+  
+    background: white;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button {
+    width: 95%;
+    margin-bottom: 10vh;
+    margin-top: 2vh;
+    height: 5vh;
+    color: white;
+    background: rgb(106, 106, 235);
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+    </style>
+</head>
+<body>
+<!--Необходимо реализовать отображение и добавление сообщений, а также функцию `checkSpam(str)`, 
+заменяющую `'viagra'` или `'XXX'` на `***`
+Функция должна быть нечувствительна к регистру:
+
+let comment1 = checkSpam('buy ViAgRA now'); //результат buy *** now
+let comment2 = checkSpam('free xxx'); //результат free ***
+let comment3 = checkSpam("innocent rabbit") ; //результат innocent rabbit-->
+
+
+
+<div class="container container_top">
+
+    <div class="text_top">Hello, how are you?</div> 
+
+</div>
+
+<div class="container container_bottom">
+
+    <textarea id="input_bottom"> </textarea>
+
+    <button>Send</button>
+
+</div>
+
+
+<script>
+
+
+    button = document.querySelector('button');
+
+    button.addEventListener('click', function () {
+        str = document.getElementById("input_bottom").value;
+        console.log(str);
+
+
+        let strOne = str.replace(/viagra|виагра|виагру|виагрой|xxx/gi, '***');
+        console.log(strOne);
+        document.getElementById("input_bottom").value = strOne;
+
+
+    });
+
+
+
+</script>
+
+</body>
+</html>

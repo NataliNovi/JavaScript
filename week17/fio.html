@@ -84,8 +84,8 @@ arrayFio = [];
 button.addEventListener('click', function()
 {
     fio = document.getElementById('fio').value;
-    stringFio = fio.replace(/^ +| +$|( ) +/g,"$1");
-    console.log(stringFio);
+    stringFio = fio.replace(/^ +| +$|( ) +/g,"$1"); //убрали лишние пробелы
+    console.log(stringFio); 
     arrayFio = stringFio.split(' ');
     console.log(arrayFio);
 
