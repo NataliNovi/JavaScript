@@ -152,7 +152,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleInputFio" placeholder="Имя и Фамилия" required>
+                            <input type="text" class="form-control" id="exampleInputFio" placeholder="Имя и Фамилия" pattern = '/^[а-яА-ЯёЁa\-\ ]+$/' required>
                         </div>
                         <div class="mb-3">
                             <input type="name" class="form-control" id="exampleInputName"
@@ -185,7 +185,7 @@ function checkValidity(input) {
     if (validity.valueMissing) {errors.push('Поле ' + input.placeholder + ' не заполнено');}
     if (validity.tooShort) {errors.push('Пароль слишком короткий');}
     if (validity.tooLong) {errors.push('Пароль слишком длинный');}
-    if (validity.patternMismatch) {errors.push('Неверный формат заполнения номера телефона');}
+    if (validity.patternMismatch) {errors.push('Неверный формат заполнения номера телефона +375(00)000 0000');}
     if (validity.typeMismatch) {errors.push('Неверно заполнено поле e-mail');}
    
     //if (validity.rangeOverflow) {let max = getAttributeValue(input, 'max'); errors.push('Максимальное значение не может быть больше, чем ' + max);}
