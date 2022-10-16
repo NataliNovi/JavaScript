@@ -117,10 +117,8 @@ form {
 <h1>Chat</h1>
 <div id="chat"></div>
 
-
-<!--<img id="image" src="https://ava-24.com/_ph/129/650128175.jpg" width="120" height="120"/>-->
-
 <img id="avatarPhoto" src="`${document.getElementById('avatar').value}`" width="120" height="120"/>
+<!--<img id="image" src="https://ava-24.com/_ph/129/650128175.jpg" width="120" height="120"/>-->
 <!--<img id="avatarPhoto" src="`${localStorage.getItem('avatarImg');}`" width="120" height="120"/>-->
 
 
@@ -163,13 +161,15 @@ form {
     if (avatar !== null) {
         
         document.getElementById("avatar").value = avatarImg;
+        
 
        // document.getElementById("avatar").value = localStorage.getItem('avatarImg');
         //document.getElementById('avatarPhoto').innerHTML += `document.getElementById("avatar").${value}`;
        // document.getElementById("comment").value = JSON.parse(localStorage.getItem('comment'));
+       //document.getElementById('avatarPhoto').innerHTML = document.getElementById("avatar").value;
         }
 
-        //document.getElementById('avatarPhoto').innerHTML = document.getElementById("avatar").value;
+       
    
     });
     
@@ -204,17 +204,14 @@ form {
 
 
     if(localStorage.getItem('avatar')==null) {
-       // localStorage.setItem('avatarImg', JSON.stringify(avatarImg));
     localStorage.setItem('avatarImg', avatarImg);
-   
+    // localStorage.setItem('avatarImg', JSON.stringify(avatarImg));
    
     }
 
     sendMessage(author, comment);
 
 };
-
-
 
     function sendMessage(author, comment) {
     document.getElementById("chat").innerHTML += `<span class='author'>${author}:</span><span>${comment}</span><br>`;}
