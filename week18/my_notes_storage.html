@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteBook</title>
+    <style>
+        
+
+        
+.container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(100, 185, 238);
+    align-items: center;
+    border-color: rgb(106, 106, 235);
+    align-items: center;
+}
+
+form {
+    width: 94%;
+}
+
+
+
+#notes {
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+}
+
+
+
+.inputs {
+    width: 90%;
+    height: 10vh;
+    border-radius: 5px;
+    text-align:start;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background: white;
+    font-size: medium;
+
+}
+
+
+
+.add_note {
+    width: 94%;
+    margin-bottom: 2vh;
+    margin-top: 0vh;
+    height: 5vh;
+    color: rgb(0, 36, 86);
+    background: rgb(237, 207, 46);
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+
+
+#button_delete {
+    width: 94%;
+    margin-bottom: 2vh;
+    margin-top: 0vh;
+    height: 3.5vh;
+    color: white;
+    background: rgb(0, 36, 86);
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+
+#button_delete_all {
+    width: 94%;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+    height: 5vh;
+    color: white;
+    background: rgb(0, 36, 86);
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+<h1>Notes</h1>
+<div id="notes"></div>
+
+
+
+<form novalidate>
+    <div><label for="note1" class = "note1">The Note 1</label></div>
+    <div class="cont cont_1">
+    <div><textarea type="text" name="note1" id="note1" value="" class="inputs"></textarea></div>
+    <button type="button" class="add_note" id="button_add1" onclick="addNote1();">Add Note 1</button>
+    <button type="button" id="button_delete" onclick="localStorage.removeItem('note1');note1.value=''">Delete Note 1</button>
+    </div>  
+
+    <div><label for="note2" class = "note2">The Note 2</label></div>
+    <div><textarea type="text" name="note2" id="note2" value="" class="inputs"></textarea></div>
+    <button type="button" class="add_note" id="button_add2" onclick="addNote2();">Add Note 2</button>
+    <button type="button" id="button_delete" onclick="localStorage.removeItem('note2');note2.value=''">Delete Note 2</button>
+
+    <div><label for="note3" class = "note3">The Note 3</label></div>
+    <div><textarea type="text" name="note3" id="note3" value="" class="inputs"></textarea></div>
+    <button type="button" class="add_note" id="button_add3" onclick="addNote3();">Add Note 3</button>
+    <button type="button" id="button_delete" onclick="localStorage.removeItem('note3');note3.value=''">Delete Note 3</button>
+
+    <div><label for="note4" class = "note4">The Note 4</label></div>
+    <div><textarea type="text" name="note1" id="note4" value="" class="inputs"></textarea></div>
+    <button type="button" class="add_note" id="button_add4" onclick="addNote4();">Add Note 4</button>
+    <button type="button" id="button_delete" onclick="localStorage.removeItem('note4');note4.value=''">Delete Note 4</button>
+
+    <div><label for="note5" class = "note5">The Note 5</label></div>
+    <div><textarea type="text" name="note5" id="note5" value="" class="inputs"></textarea></div>
+    <button type="button" class="add_note" id="button_add5" onclick="addNote5();">Add Note 5</button>
+    <button type="button" id="button_delete" onclick="localStorage.removeItem('note5');note5.value=''">Delete Note 5</button>
+
+
+    <div>
+        <button type="button" id="button_delete_all" onclick="deleteAll();">Delete All</button>
+    </div>
+
+  
+</form>
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+    /*let name=localStorage.getItem('name');
+    let comment=localStorage.getItem('comment');*/
+
+
+
+    let note1=localStorage.getItem('note1');
+    let note2=localStorage.getItem('note2');
+    let note3=localStorage.getItem('note3');
+    let note4=localStorage.getItem('note4');
+    let note5=localStorage.getItem('note5');
+  
+   
+
+    if (note1 !== null) {
+        document.getElementById("note1").value = note1;
+       
+    }
+
+    if (note2 !== null) {
+        document.getElementById("note2").value = note2;
+    }
+
+    if (note3 !== null) {
+        document.getElementById("note3").value = note3;
+    }
+
+    if (note4 !== null) {
+        document.getElementById("note4").value = note4;
+    }
+
+    if (note5 !== null) {
+        document.getElementById("note5").value = note5;
+    }
+    });
+    
+
+    function addNote1 () {
+        button = document.getElementById('button_add1');
+        let note1 = document.getElementById("note1").value;
+        if(localStorage.getItem('note1')==null) {
+    localStorage.setItem('note1', note1);
+    }
+
+   
+    };
+
+    function addNote2 () {
+        button = document.getElementById('button_add2');
+        let note2 = document.getElementById("note2").value;
+        if(localStorage.getItem('note2')==null) {
+    localStorage.setItem('note2', note2);
+    } 
+
+  
+    };
+
+    function addNote3 () {
+        button = document.getElementById('button_add3');
+        let note3 = document.getElementById("note3").value;
+        if(localStorage.getItem('note3')==null) {
+    localStorage.setItem('note3', note3);
+    } 
+    };
+
+
+    function addNote4 () {
+        button = document.getElementById('button_add4');
+        let note4 = document.getElementById("note4").value;
+        if(localStorage.getItem('note3')==null) {
+    localStorage.setItem('note4', note4);
+    } 
+    };
+
+
+    function addNote5 () {
+        button = document.getElementById('button_add5');
+        let note5 = document.getElementById("note5").value;
+        if(localStorage.getItem('note5')==null) {
+    localStorage.setItem('note5', note5);
+    } 
+    };
+
+    function deleteAll() {
+        button = document.getElementById('button_delete');
+        let note1 = document.getElementById("note1").value;
+        let note2 = document.getElementById("note2").value;
+        let note3 = document.getElementById("note3").value;
+        let note4 = document.getElementById("note4").value;
+        let note5 = document.getElementById("note5").value;
+
+        if(localStorage.getItem('note1')!==null) {
+            localStorage.removeItem('note1');
+            document.getElementById("note1").value = "";
+           
+    } 
+
+    if(localStorage.getItem('note2')!==null) {
+            localStorage.removeItem('note2');
+            document.getElementById("note2").value = "";
+           
+    } 
+
+    if(localStorage.getItem('note3')!==null) {
+            localStorage.removeItem('note3');
+            document.getElementById("note3").value = "";
+         
+    } 
+
+    if(localStorage.getItem('note4')!==null) {
+            localStorage.removeItem('note4');
+            document.getElementById("note4").value = "";
+         
+    } 
+
+    if(localStorage.getItem('note5')!==null) {
+            localStorage.removeItem('note5');
+            document.getElementById("note5").value = "";
+         
+    } 
+    };
+    
+
+
+
+
+    
+    /*button = document.querySelector('button');
+
+    function saveNotes () {
+    
+    let note1 = document.getElementById("note1").value;
+    let note2 = document.getElementById("note2").value;
+    let note3 = document.getElementById("note3").value;
+    let note4 = document.getElementById("note4").value;
+    let note5 = document.getElementById("note5").value;
+   
+
+
+    if(localStorage.getItem('note1')==null) {
+    localStorage.setItem('note1', note1);
+    }
+
+
+    if(localStorage.getItem('note2')==null) {
+    localStorage.setItem('note2', note2);
+    }
+
+    if(localStorage.getItem('note3')==null) {
+    localStorage.setItem('note3', note3);
+    }
+
+    if(localStorage.getItem('note4')==null) {
+    localStorage.setItem('note4', note4);
+    }
+
+    if(localStorage.getItem('note5')==null) {
+    localStorage.setItem('note5', note5);
+    }
+};
+
+
+    /*sendMessage(author, comment);
+}
+
+    function sendMessage(author, comment) {
+    document.getElementById("chat").innerHTML += `<span class='author'>${author}:</span><span>${comment}</span><br>`;}*/
+
+    
+    
+    //https://ava-24.com/_ph/129/650128175.jpg
+
+    //https://mirpozitiva.ru/wp-content/uploads/2019/11/1492603358_00.jpg*/
+
+</script>
+
+</body>
+</html>
