@@ -185,7 +185,7 @@ function checkValidity(input) {
     if (validity.valueMissing) {errors.push('Поле ' + input.placeholder + ' не заполнено');}
     if (validity.tooShort) {errors.push('Пароль слишком короткий');}
     if (validity.tooLong) {errors.push('Пароль слишком длинный');}
-    if (validity.patternMismatch) {errors.push('Неверный формат заполнения телефона +375(00)000 0000');}
+    if (validity.patternMismatch) {errors.push('Неверный формат заполнения номера телефона');}
     if (validity.typeMismatch) {errors.push('Неверно заполнено поле e-mail');}
    
     //if (validity.rangeOverflow) {let max = getAttributeValue(input, 'max'); errors.push('Максимальное значение не может быть больше, чем ' + max);}
