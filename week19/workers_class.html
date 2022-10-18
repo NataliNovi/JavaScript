@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-Workers</title>
+
+    <style>
+
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 0px;
+            width: 100vw;
+            height: 100vh;
+            background: rgb(71, 4, 4);
+            color: rgb(240, 192, 17);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          
+        }
+
+        p {
+            
+            font-size: 3.2rem;
+        }
+
+        .header {
+            display: flex;
+            width: 48%;
+            justify-content: center;
+            align-items:center;
+           
+            margin-bottom: 4vh;
+            margin-top: 2vh;
+        }
+            
+        .photo {
+            width: 60vw;
+            border-radius: 10px;
+            margin-top: 0vh;
+            box-shadow: inset 0 0 25px ;
+            border: 15px rgb(240, 192, 17) double;
+            
+        }
+
+        .symbol {
+            width: 120px;
+            border: 5px rgb(240, 192, 17) double;
+            border-radius: 5px;
+            margin-right: 2vw;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+    <div class = header>
+        <img class="symbol" src="https://papik.pro/uploads/posts/2022-01/thumbs/1643629076_3-papik-pro-p-logotip-khogvartsa-3.jpg"  alt="print"/>
+        <p>      Hogwarts Work Team </p>
+    </div>
+
+    <img class="photo" src="https://assets.teenvogue.com/photos/569e7d2a74da98670ff0ce1c/master/pass/MCDHAPO_EC797_H.JPG" alt="img"/>
+</div>
+    <script>
+
+    class Worker {
+        constructor(name, surname,rate,days) {
+            this.name = name;
+            this.surname = surname;
+            this.rate = Number(rate);
+            this.days = Number(days);
+        }
+
+        getSalary() {
+
+            //return `${this.name} salary: ${this.rate * this.days}`;
+
+            console.log(`${this.name} ${this.surname} salary: ${this.rate * this.days} galleons per month`);
+            return this.rate * this.days;
+                }
+
+            }
+
+        let Worker1 = new Worker('Harry', 'Potter', '50', '23');
+        console.log(Worker1.getSalary());
+        console.log(Worker1.name);
+        console.log(Worker1.surname);
+        console.log(Worker1.rate);
+        console.log(Worker1.days);
+
+      
+
+
+        let Worker2 = new Worker('Germiona', 'Granger', '40', '25');
+        console.log(Worker2.getSalary());
+        console.log(Worker2.name);
+        console.log(Worker2.surname);
+        console.log(Worker2.rate);
+        console.log(Worker2.days);
+
+        let Worker3 = new Worker('Ron', 'Weasley', '30', '23');
+        console.log(Worker3.getSalary());
+        console.log(Worker3.name);
+        console.log(Worker3.surname);
+        console.log(Worker3.rate);
+        console.log(Worker3.days);
+
+        
+
+
+    </script>
+</body>
+</html>
