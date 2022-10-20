@@ -116,8 +116,9 @@ form {
 <div class="container">
 <h1>Chat</h1>
 <div id="chat"></div>
+<div id="image"></div>
 
-<img id="avatarPhoto" src="`${document.getElementById('avatar').value}`" width="120" height="120"/>
+<!--<img id="avatarPhoto" src="`${document.getElementById('avatar').value}`" width="120" height="120"/>-->
 <!--<img id="image" src="https://ava-24.com/_ph/129/650128175.jpg" width="120" height="120"/>-->
 <!--<img id="avatarPhoto" src="`${localStorage.getItem('avatarImg');}`" width="120" height="120"/>-->
 
@@ -149,17 +150,18 @@ form {
 <script>
 
     document.addEventListener("DOMContentLoaded", function(event) {
-    let name=localStorage.getItem('name');
-    let avatarImg=localStorage.getItem('avatarImg');
+    let name;
+    let avatarImg;
    
-
     if (name !== null) {
-        document.getElementById("author").value = name;
+        localStorage.getItem('name');
+        name = document.getElementById("author").value;
+        
     }
 
-
     if (avatar !== null) {
-        document.getElementById("avatar").value = avatarImg;
+        avatarImg = document.getElementById("avatar").value;
+        localStorage.getItem('avatarImg');
     }
    
     });
@@ -174,7 +176,7 @@ form {
         console.log(strOne);
         document.getElementById("comment").value = strOne;
 
-        //checkMessage();
+        checkMessage();
 
     }
 
@@ -183,11 +185,6 @@ form {
     let comment = document.getElementById("comment").value;
     let avatarImg = document.getElementById('avatar').value;
 
-    // let avatarImg = 'img src='+document.getElementById('avatar').value + '';
-    //document.getElementById('avatarPhoto').innerHTML = JSON.parse(localStorage.getItem('avatarImg'));
-    //console.log("author");
-    //console.log("comment");
-    //console.log("avatar");
 
     if(localStorage.getItem('name')==null) {
     localStorage.setItem('name', author);
@@ -200,12 +197,25 @@ form {
    
     }
 
-    sendMessage(author, comment);
+    sendMessage(author, comment, avatarImg);
 
 };
 
-    function sendMessage(author, comment) {
-    document.getElementById("chat").innerHTML += `<span class='author'>${author}:</span><span>${comment}</span><br>`;}
+function sendMessage(author, comment, avatarImg) {
+
+     // очищаем поля ввода для следующего комментария
+     document.getElementById("author").value = '';
+    document.getElementById("avatar").value = '';
+    document.getElementById("comment").value = '';
+
+    
+        document.querySelector('#chat').innerHTML += "<img src='" + avatarImg + "' width='50' height='50'>" + ` ` +  
+                `<span class='author'>${author}:</span>` + ` ` + `<span>${comment}</span>` + `</br>`;
+}
+
+
+    /*function sendMessage(author, comment) {
+    document.getElementById("chat").innerHTML += `<span class='author'>${author}:</span><span>${comment}</span><br>`;}*/
 
     
     

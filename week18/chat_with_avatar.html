@@ -154,17 +154,13 @@ form {
     let author = document.getElementById("author").value;
     let comment = document.getElementById("comment").value;
     let avatarImg = document.getElementById('avatar').value;
-    // let avatarImg = 'img src='+document.getElementById('avatar').value + '';
-    //document.getElementById('avatarPhoto').innerHTML = JSON.parse(localStorage.getItem('avatarImg'));
-    //console.log("author");
-    //console.log("comment");
-    //console.log("avatar");
+
     if(localStorage.getItem('name')==null) {
     localStorage.setItem('name', author);
     }
     if(localStorage.getItem('avatar')==null) {
     localStorage.setItem('avatarImg', avatarImg);
-    // localStorage.setItem('avatarImg', JSON.stringify(avatarImg));
+   
     }
     sendMessage(author, comment, avatarImg);
 
@@ -178,6 +174,13 @@ form {
         document.querySelector('#chat').innerHTML += "<img src='" + avatarImg + "' width='50' height='50'>" + ` ` +  
                 `<span class='author'>${author}:</span>` + ` ` + `<span>${comment}</span>` + `</br>`;
     }
+
+//https://ava-24.com/_ph/129/650128175.jpg
+//https://i.ytimg.com/vi/tArC9-RHmU4/maxresdefault.jpg
 </script>
+
+
+
+
 </body>
 </html>
