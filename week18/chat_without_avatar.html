@@ -159,8 +159,17 @@ form {
 
 
     if (avatar !== null) {
+        
         document.getElementById("avatar").value = avatarImg;
-    }
+        
+
+       // document.getElementById("avatar").value = localStorage.getItem('avatarImg');
+        //document.getElementById('avatarPhoto').innerHTML += `document.getElementById("avatar").${value}`;
+       // document.getElementById("comment").value = JSON.parse(localStorage.getItem('comment'));
+       //document.getElementById('avatarPhoto').innerHTML = document.getElementById("avatar").value;
+        }
+
+       
    
     });
     
@@ -174,7 +183,7 @@ form {
         console.log(strOne);
         document.getElementById("comment").value = strOne;
 
-        //checkMessage();
+        checkMessage();
 
     }
 
