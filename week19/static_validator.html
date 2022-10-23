@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 5vh;
+            width: 98%;
+            background: rgb(17, 85, 98);
+            border-radius: 6px;
+            font-size: 1rem;
+            color: rgb(240, 183, 133);
+            margin-bottom: 1vh;
+        }
+    
+        button {
+           
+            height: 5vh;
+            width: 100%;
+            background: rgb(241, 163, 95);
+            border-radius: 6px;
+            font-size: medium;
+            color: rgb(5, 5, 123);
+        }
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 30vw;
+            background: rgb(240, 195, 155);
+        }
+    </style>
+    
+    </head>
+    <body>
+    <div class="container">
+        <input type = "email" id = "email" class="test" placeholder="email"/>
+        <input type = "domain" id = "domain" class="test" placeholder="domain"/>
+        <input type = "text" id = "date" class="test" placeholder="dd.mm.yyyy"/>
+        <input type = "phone" id = "phone" class="test" placeholder="+375(00)000 0000"/>
+    
+        <button onclick="go()">Go!</button>
+    
+    </div>
+    <script>
+
+        function go() {
+
+        class Validator {
+        constructor(string) {
+            this.string = string;
+        }
+
+        static isMail() {
+
+            let str = document.getElementById('email').value;
+     
+            /*if (str.includes('@')) {
+                alert ('Адрес эл почты введен верно!')
+            }
+            else alert ('Проверьте адрес эл почты!');
+
+            console.log(str.includes('@')); */
+            return str.includes('@'); 
+        }
+
+
+        static isDomain() {
+
+        let str = document.getElementById('domain').value;
+
+        /*if (str.includes('.')) {
+        alert ('Имя домена верно!')
+        }
+        else alert ('Имя домена указано неверно!');
+
+        console.log(str.includes('.'));*/
+        return str.includes('.'); 
+
+        } 
+
+
+        static isDate() {
+
+        let str = document.getElementById('date').value;
+
+        /*if (str.includes('.'))
+        {
+        alert ('Дата указана верно!')
+        }
+        else alert ('Дата указана неверно!');
+
+        console.log(str.includes('.'));*/
+        return str.includes('.'); 
+
+        } 
+
+
+        static isPhone() {
+
+        let str = document.getElementById('phone').value;
+
+        /*if (str.includes('+375'))
+        {
+        alert ('Телефон указан верно!')
+        }
+        else alert ('Телефон указан неверно!');
+
+        console.log(str.includes('.'));*/
+        return str.includes('.'); 
+
+        } }
+
+
+      
+        console.log(Validator.isMail(document.getElementById('email').value));
+        console.log(Validator.isDomain(document.getElementById('domain').value));
+        console.log(Validator.isDate(document.getElementById('date').value));
+        console.log(Validator.isPhone(document.getElementById('phone').value));
+
+
+};
+
+
+   
+
+
+    </script>
+</body>
+</html>
