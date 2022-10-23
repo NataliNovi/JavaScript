@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./normalize.css">
+    <title>Calc</title>
+    <style>
+
+.title {
+    margin-left: 20px;
+    font-size: 1.4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.calculator {
+    width: 282px;
+    height: 460px;
+    background: rgb(136, 235, 202);
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    width: 256px;
+    height: 226px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(7, 107, 99);
+    background: rgb(246, 242, 242);
+    margin-left: 12px;
+
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    color: rgb(25, 27, 26);
+    background: rgb(136, 235, 202);
+    font-size: 1.2rem;
+    
+    justify-content: center;
+    align-items: center;
+    margin: 1.5vh;
+}
+
+#out {margin-bottom: 2vh;
+    margin-left: 12px;}
+
+.num1 {
+    padding-top: 2vh;
+    margin-left: 12px;
+    
+}
+
+.num2 {
+    margin-top: 2vh;
+    margin-left: 12px;
+    
+}
+        
+    </style>
+</head>
+<body>
+    <h1 class = title>Calculator</h1>
+
+    <div class = "calculator">
+    <p class ="num1">Number 1: <input type = "text" id = "n1"></p>
+    <p class="num2">Number 2: <input type = "text" id = "n2"></p>
+
+    <div class = "container">
+    <button onclick=" plus()">+</button>
+    <button onclick="minus()">-</button>
+    <button onclick="multiply()">*</button>
+    <div id="errorMessage"></div>
+    <button type="button" onclick="division(); check();">/</button>
+    </div>
+    <div id="errorMessage"></div>
+    <p id = "out">Result:</p>
+
+</div>
+
+    <script>
+
+
+function plus() {
+
+
+class Calculator {
+constructor (num1, num2) 
+{this.num1 = num1;
+this.num2 = num2;
+}
+
+static numPlus() 
+{   
+let num1 = document.getElementById('n1').value;
+let num2 = document.getElementById('n2').value;
+let result= Number(num1) + Number(num2);
+document.getElementById('out').innerHTML = result;   
+
+return Number(num1) + Number(num2); 
+}};
+
+console.log(Calculator.numPlus());
+
+};
+
+
+
+function minus() {
+
+
+class Calculator {
+constructor (num1, num2) 
+{this.num1 = num1;
+this.num2 = num2;
+}
+
+static numMinus() 
+{   
+let num1 = document.getElementById('n1').value;
+let num2 = document.getElementById('n2').value;
+let result= Number(num1) - Number(num2);
+document.getElementById('out').innerHTML = result;   
+
+return Number(num1) - Number(num2); 
+}};
+
+console.log(Calculator.numMinus());
+
+};
+
+
+function multiply() {
+
+
+class Calculator {
+constructor (num1, num2) 
+{this.num1 = num1;
+this.num2 = num2;
+}
+
+static numMultiply() 
+{   
+let num1 = document.getElementById('n1').value;
+let num2 = document.getElementById('n2').value;
+let result= Number(num1) * Number(num2);
+document.getElementById('out').innerHTML = result;   
+
+return Number(num1) * Number(num2); 
+}};
+
+console.log(Calculator.numMultiply());
+
+};
+
+
+function division() {
+
+
+class Calculator {
+constructor (num1, num2) 
+{this.num1 = num1;
+this.num2 = num2;
+}
+
+static numDivision() 
+{   
+let num1 = document.getElementById('n1').value;
+let num2 = document.getElementById('n2').value;
+let result= Number(num1) / Number(num2);
+document.getElementById('out').innerHTML = result;   
+
+return Number(num1) / Number(num2); 
+}};
+
+console.log(Calculator.numDivision());
+
+};
+
+           
+function check() {
+let num2 = document.getElementById('n2').value;
+if(num2 == "0") {
+alert("На ноль делить нельзя"); }
+};
+           
+
+ 
+    </script>
+</body>
+</html>
