@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .wrap{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 50vw;
+            text-align: center;
+            background: rgb(243, 212, 172);
+         padding: 5vh;
+        }
+
+        img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+      
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+    
+<div class="container">
+
+<h1>Cat's fact</h1>
+<img src="https://www.kindpng.com/picc/m/259-2598657_cat-dog-kitten-cat-vector-png-transparent-png.png">
+<h2 id="fact"></h2>
+</div>
+</div>
+
+   
+<script>
+    document.addEventListener("DOMContentLoaded",
+    function(event) {
+    fetch("https://catfact.ninja/fact")
+    .then(response => response.json())
+   
+    .then(facts => 
+    { console.log(facts);
+
+    document.getElementById('fact').innerText = facts.fact;
+    })
+    
+    .catch(error => console.log(error));
+   
+   
+});
+       
+    </script>
+</body>
+</html>
