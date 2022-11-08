@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .container {
+            width: 90vw;
+            height: 50vh;
+           padding: 50px;
+            background: rgb(167, 52, 11);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 4px solid rgb(95, 31, 4);
+            border-radius: 5px;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 20%;
+        }
+
+        #button {
+            width: 98.2vw;
+            height: 15vh;
+            background: rgb(95, 31, 4);
+            color: white;
+            font-size: large;
+            border-radius: 5px;
+            border: 4px solid rgb(167, 52, 11);
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+<body>
+
+   <div class="wrapper">
+
+    <div class = "container">
+
+    <img src="" id="nasaPhoto1" width="250">
+    <img src="" id="nasaPhoto2" width="250">
+    <img src="" id="nasaPhoto3" width="250">
+    <img src="" id="nasaPhoto4" width="250">
+
+</div>
+
+<button id="button">Получить фотографии Марса!</button>
+</div>
+
+    <script>
+
+document.querySelector('#button').addEventListener('click', () => {
+
+getPhoto();
+ });
+ 
+    function getPhoto() {
+    fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=VgagaNNkslveSWEypDgi1JIAxEdd006Z6NtBqnED")
+    .then(response => response.json())
+   
+    .then(user => 
+    { console.log(user);
+        document.getElementById("nasaPhoto1").src = user.photos[0].img_src;
+        document.getElementById("nasaPhoto2").src = user.photos[1].img_src;
+        document.getElementById("nasaPhoto3").src = user.photos[2].img_src;
+        document.getElementById("nasaPhoto4").src = user.photos[3].img_src;
+
+   
+    })
+    
+    .catch(error => console.log(error));
+   
+   
+};
+
+
+
+    </script>
+</body>
+</html>
