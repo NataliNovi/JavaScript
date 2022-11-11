@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="scortcut icon"
+        href="https://img.freepik.com/free-vector/geek-glasses-cat-working-laptop-tech-office-programmer-animal-mascot-cartoon-vector-illustration_7102-687.jpg?w=2000"
+        type="img/jpg">
+    <title>О Коте</title>
+</head>
+
+<body>
+    <h1>Анкета Кота Учёного и его владельца </h1>
+    <form action="script.php" method="POST">
+        <br>
+        <fieldset>
+            <legend><b>Имя и контакты</b></legend>
+            <br>
+            <div>
+                <label for="name">Кличка Кота</label>
+                <input type="text" id="name" required/> *
+            </div>
+            <br>
+            <div>
+                <label for="FIO">ФИО владельца Кота</label>
+                <input type="text" id="FIO" required/> *
+            </div>
+            <br>
+            <div>
+                <label for="contact">Телефон владельца Кота в формате +375(00)000 0000 </label>
+                <input type="text" id="contact" required pattern='\s{0,}\+{1,1}375\s{0,}\({0,1}(([2]{1}([5]{1}|[9]{1}))|([3]{1}[3]{1})|([4]{1}[4]{1}))\)\s{0,}[0-9]{3,3}\s{0,}[0-9]{4,4}'/> *
+            </div>
+        </fieldset>
+        <br>
+        <div>
+            <fieldset>
+                <legend><b>Порода</b></legend>
+                <p>Выберите породу Кота Учёного *
+                <p>
+                    <select required> 
+                        <option value="">Сделайте выбор</option>
+                        <option value="1">Математик</option>
+                        <option value="2">Философ</option>
+                        <option value="3">Программист</option>
+                        <option value="4">Химик</option>
+                        <option value="5">Биолог</option>
+                        <option value="6">Историк</option>
+                        <option value="7">Врач</option>
+                        <option value="8">Филолог</option>
+                        <option value="9">Искусствовед</option>
+                        <option value="10">Физик</option>
+                    </select>
+            </fieldset>
+        </div>
+        <br>
+        <div>
+            <fieldset>
+                <legend><b>Питание</b></legend>
+
+                <label for="eda">Чем питается Кот Учёный?</label>
+                <br>
+                <br>
+
+                <label for="eda">Рыба</label>
+                <input type="checkbox" id="eda" />
+                <br>
+                <label for="eda1">Мясо</label>
+                <input type="checkbox" id="eda1" />
+                <br>
+                <label for="eda2">Овощи</label>
+                <input type="checkbox" id="eda2" />
+                <br>
+                <label for="eda3">Фрукты</label>
+                <input type="checkbox" id="eda3" />
+                <br>
+                <label for="eda4">Крупы, макароны</label>
+                <input type="checkbox" id="eda4" />
+                <br>
+                <label for="eda5">Бобовые</label>
+                <input type="checkbox" id="eda5" />
+                <br>
+                <label for="eda6">Без глютена, молока и сахара</label>
+                <input type="checkbox" id="eda6" />
+       
+            </fieldset>
+        </div>
+        <br>
+        <div>
+            <fieldset>
+                <legend><b>Гендерная принадлежность</b></legend>
+                <label for="sex">Пол Кота Ученого</label>
+                <br>
+                ОН <input type="radio" name="sex">
+                <br>
+                ОНА <input type="radio" name="sex">
+            </fieldset>
+        </div>
+        <br>
+        <div>
+            <label for="comments"><b>Комментарий Кота Учёного о Владельце:</b></label>
+            <br>
+            <textarea name="comments" id="comments" rows="20" cols="40"></textarea>
+        </div>
+        <p><b>Фото Кота Учёного</b></p>
+        <div>
+            <input type="file" />
+        </div>
+        <br>
+        <div>
+
+            <span style="color:indigo">Проверьте правильность заполнения анкеты и нажмите кнопку "Сохранить":</span>
+            <br>
+            <br>
+            <button id="postButton">Сохранить</button>
+        </div>
+    </form>
+
+
+    <script>
+         postButton.onclick = function (event) {event.preventDefault();
+               let form = document.getElementsByTagName('form').value;
+       
+        fetch("http://httpbin.org/post",
+        {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+        })
+        .then(response=>response.json())
+        .then(user => {console.log(user);})
+        .catch(error => console.log(error));
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: gray;
+        }
+        .form-title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            justify-content: center;
+        }
+        .form-alt {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: gray;
+        }
+        .title {
+            font-family: 'Rochester', cursive;
+        }
+        .register {
+            text-align: center;
+            align-content: center;
+            padding-left: 1.8vw;
+            padding-right: 1.8vw;
+            font-size: 1rem;
+            font-weight: 700;
+            color: gray;
+        }
+        .btn-facebook {
+            width: 100%;
+            height: 5vh;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            background-color: rgb(154, 154, 242);
+            border: 1px solid rgb(154, 154, 242);
+            border-radius: 3px;
+            color: white;
+        }
+        .or {
+            padding-bottom: 2vh;
+            display: flex;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 500;
+            color: gray;
+        }
+        .btn-login {
+            width: 100%;
+            height: 5vh;
+            margin-top: 1.5vh;
+            margin-bottom: 1.5vh;
+            background-color: rgb(154, 154, 242);
+            border: 1px solid rgb(154, 154, 242);
+            border-radius: 3px;
+            color: white;
+        }
+        .modal-dialog {
+            display: flex;
+            justify-content: center;
+        }
+        .modal-header {
+            display: block;
+            border: 0.1px transparent;
+        }
+        .modal-content {
+            width: 60%;
+        }
+        .rules {
+            text-align: center;
+            margin-bottom: 3vh;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: gray;
+        }
+        .conditions {
+            font-weight: 500;
+            color: rgb(98, 97, 97);
+        }
+        .politic {
+            font-weight: 500;
+            color: rgb(98, 97, 97);
+        }
+        .modal-footer {
+            border: 0.1px transparent;
+        }
+        #errorMessage {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="modal-header justify-content-space-between">
+                        <h1 class="title text-center">Instagram</h1>
+                    </div>
+                    <div class="register">
+                        <h7>Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</h7>
+                    </div>
+                    <div> <button class="btn-facebook">Войти через Facebook</button> </div>
+                    <div class="or">
+                        <h7>или</h7>
+                    </div>
+                    <form id="form">
+                        <div class="mb-3">
+                            <input type="phone_email" class="form-control" id="exampleInputEmail"
+                                aria-describedby="emailHelp" placeholder="Моб. телефон или эл. адрес">
+                        </div>
+                        <div class="mb-3">
+                            <input type="fio" class="form-control" id="exampleInputFio" placeholder="Имя и фамилия">
+                        </div>
+                        <div class="mb-3">
+                            <input type="name" class="form-control" id="exampleInputName"
+                                placeholder="Имя пользователя">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Пароль">
+                        </div>
+                        <div class="text-center">
+                            <div id="errorMessage"></div>
+                            <button id="postButton" class="btn btn-block btn-login" type="button" onclick="check()">Регистрация</button>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="rules"><a>Регистрируясь, вы соглашаетесь с нашими <a class="conditions"
+                                        href="">Условиями</a> и <a class="politic" href="">Политикой
+                                        конфиденциальности</a></div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+
+postButton.onclick = function (event) {event.preventDefault();
+                let user = 
+            {
+                email: document.getElementById("exampleInputEmail").value,
+                fio: document.getElementById("exampleInputFio").value,
+                name: document.getElementById("exampleInputName").value,
+                password: document.getElementById("exampleInputPassword").value
+               
+            }
+        console.log(user);
+       
+        fetch("http://httpbin.org/post",
+        {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+        })
+        .then(response=>response.json())
+        .then(user => {console.log(user);})
+        .catch(error => console.log(error));
+        
+
+
+     {
+            let email = document.getElementById("exampleInputEmail");
+            let fio = document.getElementById("exampleInputFio");
+            let name = document.getElementById("exampleInputName");
+            let password = document.getElementById("exampleInputPassword");
+            document.getElementById('errorMessage')
+                .innerHTML = "";
+            if (email.value == '') {
+                document.getElementById('errorMessage')
+                    .innerHTML += "Ваш моб.телефон или эл.почта не заполнены<br>";
+            }
+            else if (fio.value == '') {
+                document.getElementById('errorMessage')
+                    .innerHTML += "Имя и фамилия не заполнены<br>";
+            }
+            else if (name.value == '') {
+                document.getElementById('errorMessage')
+                    .innerHTML += "Имя пользователя не заполнено<br>";
+            }
+           else if (password.value == '') {
+                document.getElementById('errorMessage')
+                    .innerHTML += "Ваш пароль не заполнен<br>";
+            }
+           else if (password.value.length > 1 && password.value.length <= 5) {
+                document.getElementById('errorMessage')
+                    .innerHTML += "Ваш пароль too short<br>";
+            }
+            else {
+                alert('Поздравляем! Регистрация прошла успешно!');
+            };
+        }
+    }
+
+        console.log(document.querySelectorAll('input'));
+        
+    </script>
+    
+</body>
+</html>
