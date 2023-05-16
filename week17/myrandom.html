@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,7 +85,207 @@
 
        };
 
-        
+
+
+      //  let a = "global";
+      //  console.log(a);
+      //  function outer() {
+      //   let b = "outer";
+      //   function inner() {
+      //     let c = "inner";
+      //     console.log(c);
+      //     console.log(b);
+      //     console.log(a);
+      //   }
+      //   inner();  
+
+
+      //     //console.log(c);
+      //     console.log(b);
+      //     console.log(a);
+      //  }
+
+      //   outer();
+
+
+          //console.log(c);
+          //console.log(b);
+
+// [Log] global (myrandom.html, line 96)
+// [Log] inner (myrandom.html, line 101)
+// [Log] outer (myrandom.html, line 102)
+// [Log] global (myrandom.html, line 103)
+// [Log] outer (myrandom.html, line 109)
+// [Log] global (myrandom.html, line 110)
+  
+
+
+      //   function getCounter() {
+      //   let counter = 0;
+
+      //   return function() {
+      //     return counter++;
+      //   }
+      // }
+      //   let count = getCounter();
+
+      //   console.log(count());  // 0
+      //   console.log(count());  // 1
+      //   console.log(count());  // 2
+
+
+
+
+//неправильное замыкание
+        // function funcOutTest() {
+        //   let test = 0;
+
+        //   return function countInnerTest() {
+        //     console.log(test++) //0  //2
+        //     return test++
+            
+        //   }
+        // }
+
+        // let incrTest = funcOutTest();
+        // console.log(incrTest()); //1
+        // console.log(incrTest()); //3
+
+
+
+//правильное замыкание
+
+        // function funcOut() {
+        //   let test = 0;
+
+        //   return function countInner() {
+        //     return test++
+        //     console.log(test++) //
+            
+        //   }
+        // }
+
+        // let incr = funcOut();
+        // console.log(incr()); //0
+        // console.log(incr()); //1
+        // console.log(incr()); //2
+
+
+
+    // function showName(firstName, lastName) { 
+    // var nameIntro = "Your name is ";
+
+    // function makeFullName() {
+    //     return nameIntro + firstName + " " + lastName;
+    // }
+
+    // return makeFullName();
+    // }
+
+    // console.log(showName("Michael", "Jackson")); // Your name is Michael Jackson
+
+
+// let arr = [1,2,3,3,3,4,5,6]
+
+// arr.forEach(function(item) {
+//   console.log(item*2);
+// })
+
+// console.log(arr.forEach(item=>item*2))
+
+// arr.map(function(item) {
+//   console.log(item+1)
+// })
+
+// const filtArr = arr.filter(el=> el==3);
+// console.log(filtArr)
+
+
+
+const myArray = [1, 2, 3, 4, 5]
+console.log(myArray.forEach(x => x * x))
+//under4fined
+
+console.log(myArray.map(x => x * x))        
+//[1, 4, 9, 16, 25] 
+
+
+
+// Простой и наивный способ копирования объектов
+// Простой способ копирования объектов заключается в том, что пройтись циклом по оригинальному объекту и скопировать каждое свойство по очереди. Давайте взглянем на такой код:
+
+// function copy(mainObj) {
+//   let objCopy = {}; // objCopy будет хранить копию mainObj
+//   let key;
+
+//   for (key in mainObj) {
+//     objCopy[key] = mainObj[key]; // копирует каждое свойство objCopy
+//   }
+//   return objCopy;
+// }
+
+// const mainObj = {
+//   a: 'Alex',
+//   b: 'Tom',
+//   c: {
+//     x: 7,
+//     y: 4,
+//   },
+// }
+
+// console.log(copy(mainObj));
+
+
+
+// const names = {
+//   a: 'Alex',
+//   b: 'Tom',
+//   c: {
+//     x: 7,
+//     y: 4,
+//   },
+// }
+
+// function copy(names) {
+//   let copyNames={};
+//   let key;
+
+//   for (key in names) {
+//    copyNames[key] = names[key]
+//   }
+//   return copyNames
+// }
+
+// console.log(copy(names))
+
+
+// объявляем функцию createItem, она будет возвращать новые объекты товаров
+function createItem(brand, piece, color, size) {
+    // создаём новый объект товара
+    const newItem = {
+        brand,
+        piece,
+				color,
+				size,
+        isChecked: false,
+        check: function () {
+            newItem.isChecked = !newItem.isChecked;
+        }
+    }
+
+    return newItem; // возвращаем этот объект
+}
+
+// теперь создавать объекты товаров будет гораздо проще
+const item1 = createItem('Reserved', 'Куртка', 'Белый', 'L');
+const item2 = createItem('Parad', 'Кроссовки', 'Мультиколор', 39);
+const item3 = createItem('Rendez-vous', 'Ремень', 'Черный', '90см');
+
+// тестируем, как данные и функциональность работают вместе
+console.log(item1.isChecked); // false
+item1.check();
+console.log(item1.isChecked); // true
+
 
     </script>
 </body>
